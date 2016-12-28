@@ -14,10 +14,14 @@ Then, you can run this app using this command
 
 It will listen on all interface on port 5000.
 
+Notes: This method is not suitable for production as it doesn’t scale well and 
+by default serves only one request at a time. Read Flask documentation for 
+[deployment in production](http://flask.pocoo.org/docs/0.12/deploying/)
+
 ## Example output
 
 Using curl, assuming app listen on ip address 10.10.10.20. and curl running on
-host with ip address 10.10.10.2
+host with ip address 10.10.10.1
 
 ```
 curl http://10.10.10.20:5000/
@@ -31,9 +35,9 @@ output
     "Accept": "*/*",
     "Content-Length": "",
     "Content-Type": "",
-    "Host": "localhost:5000",
+    "Host": "10.10.10.20:5000",
     "User-Agent": "curl/7.51.0"
   },
-  "origin": "10.10.10.2"
+  "origin": "10.10.10.1"
 }
 ```
