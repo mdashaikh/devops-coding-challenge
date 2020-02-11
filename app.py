@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from flask import Flask, jsonify, request
-from werkzeug.contrib.fixers import ProxyFix
+from werkzeug.middleware import proxy_fix
 app = Flask(__name__)
 
 
@@ -13,7 +13,7 @@ def view_headers():
     return jsonify(d)
 
 
-app.wsgi_app = ProxyFix(app.wsgi_app)
+app.wsgi_app = proxy_fix.ProxyFix(app.wsgi_app)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
