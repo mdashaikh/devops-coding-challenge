@@ -1,4 +1,3 @@
-# KMK DevOps Coding Challenge App
 
 This is small flask app. This app will show request headers and client ip
 address in JSON format.
